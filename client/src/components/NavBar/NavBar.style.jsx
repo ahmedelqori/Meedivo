@@ -47,7 +47,7 @@ export const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 5px 20px;
+  padding: 5px 0;
   margin-left: auto;
   margin-right: auto;
   color: #3c3d37;

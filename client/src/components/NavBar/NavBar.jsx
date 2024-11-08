@@ -1,43 +1,66 @@
-import React from "react";
-import "./Navbar.css";
+import React, { useState } from "react";
+import "./NavBar.style.jsx";
+import {
+  Header,
+  Announce,
+  Nav,
+  Logo,
+  List,
+  Link,
+  Button,
+  AnnounceTitle,
+  Login,
+  LoginButton,
+} from "./NavBar.style.jsx";
 
 const Navbar = () => {
+  const [closeAnnounce, setCloseAnnounce] = useState(false);
+
+  const closeAnnouncement = () => {
+    if (!closeAnnounce) setCloseAnnounce(true);
+  };
   return (
-    <header className="navbar relative w-full py-5 px-0 bg-white">
-      <nav className="w-4/5 flex justify-between items-center px-5 py-0 mx-auto">
+    <Header>
+      {closeAnnounce ? (
+        ""
+      ) : (
+        <Announce>
+          <AnnounceTitle>
+            🎉 Big Promotion! Get 50% off on our premium membership! 🎉
+          </AnnounceTitle>
+          <Button onClick={closeAnnouncement}>×</Button>
+        </Announce>
+      )}
+      <Nav>
         <div className="flex justify-between items-center gap-5">
-          <div className="text-2xl font-bold">Logo</div>
-          <ul className="list-none flex gap-5">
+          <Logo>LEET TEST</Logo>
+          <List className="list-none flex gap-5">
             <li>
-              <a class="no-underline text-stone-700 font-medium" href="#home">
-                Explore
-              </a>
+              <Link href="#explore">Explore</Link>
             </li>
             <li>
-              <a class="no-underline text-stone-700 font-medium" href="#about">
-                Problems
-              </a>
+              <Link href="#problems">Problems</Link>
             </li>
             <li>
-              <a
-                class="no-underline text-stone-700 font-medium"
-                href="#services"
-              >
-                Contest
-              </a>
+              <Link href="#contest">Contest</Link>
             </li>
             <li>
-              <a
-                class="no-underline text-stone-700 font-medium"
-                href="#contact"
-              >
-                Discuss
-              </a>
+              <Link href="#discuss">Discuss</Link>
             </li>
-          </ul>
+            <li>
+              <Link href="#interview">Interview</Link>
+            </li>
+            <li>
+              <Link href="#store">Store</Link>
+            </li>
+          </List>
         </div>
-      </nav>
-    </header>
+        <Login>
+          <LoginButton>Sing In</LoginButton>
+          <LoginButton>Sing Up</LoginButton>
+        </Login>
+      </Nav>
+    </Header>
   );
 };
 
